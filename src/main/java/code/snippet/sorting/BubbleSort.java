@@ -1,10 +1,10 @@
 package code.snippet.sorting;
 
 /**
- * Complexity O(n^2)
- * Worthcase 
+ * Efficiency: O(n^2)
+ * Worth case comparisons: N*(N-1)/2
+ * Worth case swaps: N*(N-1)/2
  * @author Eugene Valchkou
- *
  */
 public class BubbleSort {
 	public static void main(String[] args) {
@@ -17,13 +17,16 @@ public class BubbleSort {
 		for (int i = 0; i<arr.length; i++) {
 			for (int j=i+1; j<arr.length; j++) {
 				if (arr[i]>arr[j]) {
-					//swap
-					int s = arr[i];
-					arr[i] = arr[j];
-					arr[j] = s;
+					swap(i, j, arr);
 				}
 			}
 		}		
+	}
+	
+	static void swap(int i, int j, int[] arr) {
+		int s = arr[i];
+		arr[i] = arr[j];
+		arr[j] = s;
 	}
 	
 	static void print (int[] arr) {

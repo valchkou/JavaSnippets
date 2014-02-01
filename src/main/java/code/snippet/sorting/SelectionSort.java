@@ -1,5 +1,15 @@
 package code.snippet.sorting;
 
+/**
+ * Efficiency: O(n^2)
+ * Worth case comparisons: N*(N-1)/2
+ * Worth case swaps: N-1
+ * In Selection sort we still iterate outer and inner loops to  find the smallest element.
+ * But in contrast to Bubble we don't swap immediately but memorize position of that element.
+ * Than do 1 swap per outer loop. That's makes number of swaps N-1.
+ * Though efficiency is O(n^2) this sort is more efficient than Bubble Sort due to less swaps.
+ * @author Eugene Valchkou
+ */
 public class SelectionSort {
 
 	public static void main(String[] args) {
@@ -16,14 +26,18 @@ public class SelectionSort {
 					min = j;
 				}
 			}
-			// swap
-			if (min != i) {
-				int s = arr[i];
-				arr[i] = arr[min];
-				arr[min] = s;
 			
+			// one swap per outer iteration
+			if (min != i) {
+				swap(i, min, arr);
 			}
 		}		
+	}
+	
+	static void swap(int i, int j, int[] arr) {
+		int s = arr[i];
+		arr[i] = arr[j];
+		arr[j] = s;
 	}
 	
 	static void print (int[] arr) {
